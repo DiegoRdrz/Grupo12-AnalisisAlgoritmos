@@ -55,7 +55,7 @@ public:
 
 ## Punto 2
 Solución fuerza bruta:
-![alt text](image-2.png)
+![alt text](imgs/image-2.png)
 
 ```cpp
 class Solution {
