@@ -1,4 +1,4 @@
-## Aqui ira el contenido del parcial 1
+## Ejercicios 1 y 2 
 ## Punto 1
 Solución fuerza bruta:
 ![alt text](imgs/image-1.png)
