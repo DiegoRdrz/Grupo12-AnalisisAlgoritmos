@@ -31,16 +31,34 @@ public:
 };
 ```
 
-## Justificación Greedy
+# Estrategia Greedy
 
-Ordenar permite satisfacer primero a los niños **menos exigentes** con las galletas **más pequeñas posibles**.  
-Esto deja las galletas grandes disponibles para niños con mayor *greed*, maximizando el número total de niños satisfechos.
+La idea es **asignar primero las galletas más pequeñas posibles a los niños menos exigentes**.
 
----
+# Justificación del enfoque Greedy
+
+Ordenar ambos arreglos permite aplicar una estrategia óptima:
+
+Se intenta satisfacer primero a los niños menos exigentes.
+
+A cada niño se le asigna la galleta más pequeña que lo satisfaga.
+
+Esto es correcto porque:
+
+Si se le diera una galleta grande a un niño poco exigente, se podría desperdiciar una galleta que podría necesitar un niño más exigente.
+
+Al usar la galleta mínima posible para cada niño, se preservan las galletas grandes para quienes realmente las necesitan.
+
+Por lo tanto, esta decisión local (asignar la galleta mínima válida) no perjudica la solución global, cumpliendo la propiedad greedy.
 
 ## Complejidad
 
 ### Tiempo
+Sea:
+
+- n = número de niños
+- m = número de galletas
+Entonces:
 
 - Ordenar niños: `O(n log n)`
 - Ordenar galletas: `O(m log m)`
@@ -62,19 +80,29 @@ Solución:
 ```cpp
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> seen;
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        if (intervals.empty()) return 0;
 
-        for (int num : nums) {
-            if (seen.find(num) != seen.end()) {
-                return true;
+        sort(intervals.begin(), intervals.end(), 
+             [](vector<int>& a, vector<int>& b) {
+                 return a[1] < b[1];
+             });
+
+        int count = 0;
+        int prevEnd = intervals[0][1];
+
+        for (int i = 1; i < intervals.size(); i++) {
+            if (intervals[i][0] < prevEnd) {
+                count++;
+            } else {
+                prevEnd = intervals[i][1];
             }
-            seen.insert(num);
         }
 
-        return false; 
+        return count;
     }
 };
+```
 
 ## Justificación Greedy
 
@@ -87,6 +115,7 @@ Este enfoque sigue el mismo principio del problema clásico **Activity Selection
 ---
 
 ## Complejidad
+Sea n el número de intervalos.
 
 ### Tiempo
 
