@@ -1,5 +1,6 @@
 ## Punto 3
 ## Solución:
+![alt text](imgs/image-3.png)
 
 ```cpp
 Código:
