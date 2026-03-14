@@ -75,7 +75,7 @@ public:
         return false; 
     }
 };
-
+```
 ## Justificación Greedy
 
 Ordenar por **menor tiempo de finalización (`end`)** permite escoger siempre el intervalo que deja **más espacio disponible** para los siguientes.
