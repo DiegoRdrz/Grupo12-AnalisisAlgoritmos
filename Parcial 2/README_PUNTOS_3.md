@@ -1,5 +1,8 @@
-Punto 3
-Solución:
+## Punto 3
+## Solución:
+
+```cpp
+Código:
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
@@ -16,11 +19,9 @@ public:
         return true;
     }
 };
+```
 
-Pantallazo:
-
-
-Estrategia Greedy
+## Estrategia Greedy
 
 La idea es mantener siempre el máximo índice al que podemos llegar mientras recorremos el arreglo.
 
@@ -29,7 +30,7 @@ Si es alcanzable, actualizamos el máximo alcance posible usando el salto permit
 
 Si en algún momento encontramos una posición que no podemos alcanzar, significa que no es posible llegar al final del arreglo.
 
-Justificación del enfoque Greedy
+## Justificación del enfoque Greedy
 
 El algoritmo toma una decisión local en cada paso: actualizar el índice más lejano que se puede alcanzar hasta el momento.
 
@@ -45,7 +46,7 @@ Por lo tanto, mantener actualizado el mayor índice alcanzable garantiza que si 
 
 Esta estrategia cumple con la propiedad greedy porque la mejor decisión local (extender el alcance máximo) conduce a la solución global correcta.
 
-Complejidad
+## Complejidad
 Tiempo
 
 Sea:
@@ -60,7 +61,7 @@ O(n)
 Complejidad total:
 O(n)
 
-Espacio
+### Espacio
 
 O(1)
 
