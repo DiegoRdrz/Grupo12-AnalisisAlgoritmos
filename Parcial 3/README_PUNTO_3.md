@@ -1,6 +1,9 @@
+# Punto 3
+
 ## 1. SOLUCION
 <img width="1858" height="874" alt="image" src="https://github.com/user-attachments/assets/b665a02e-075e-4f65-813a-a77b6efc2864" />
 
+```python
 class Solution:
     def numDecodings(self, s: str) -> int:
         n = len(s)
@@ -23,8 +26,11 @@ class Solution:
                 dp[i] += dp[i - 2]
         
         return dp[n]
+```
 
-2. Estrategia de Programación Dinámica
+---
+
+## 2. Estrategia de Programación Dinámica
 
 Se construye un arreglo dp de tamaño (n+1) donde dp[i] representa el número de formas de decodificar los primeros i caracteres de la cadena s.
 
@@ -40,7 +46,9 @@ dp[i] += dp[i-2]
 
 La respuesta final se encuentra en dp[n].
 
-3. Justificación
+---
+
+## 3. Justificación
 
 Los casos base:
 
@@ -55,7 +63,9 @@ Si aparece un '0', no puede decodificarse solo, por lo que depende únicamente d
 
 Dado que cada subproblema dp[i] se calcula una sola vez y en orden, se garantiza encontrar la solución óptima global.
 
-4. Complejidad
+---
+
+## 4. Complejidad
 Complejidad temporal
 
 Se recorre la cadena una sola vez y cada posición se calcula en tiempo constante.
